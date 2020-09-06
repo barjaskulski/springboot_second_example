@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="fordDatabase"
+          class="pringboot.carmanager.data.FordDatabase"></bean>
+    <bean id="fsoDatabase"
+          class="pringboot.carmanager.data.FSODatabase"></bean>
+
+    <bean id="carFullDataDisplayer"
+          class="pl.marcinszewczyk.carmanager.display.CarFullDataDisplayer"></bean>
+    <bean id="carDescriptionDisplayer"
+          class="pl.marcinszewczyk.carmanager.display.CarDescriptionDisplayer"></bean>
+
+    <bean id="carService" class="pringboot.carmanager.CarService">
+        <constructor-arg ref="fordDatabase"></constructor-arg>
+        <constructor-arg ref="fsoDatabase"></constructor-arg>
+    </bean>
+
+<!--    <bean id="fsoCarService" class="CarService">-->
+<!--        <constructor-arg ref="fsoDatabase"></constructor-arg>-->
+<!--        <constructor-arg ref="carFullDataDisplayer"></constructor-arg>-->
+<!--    </bean>-->
+</beans>
